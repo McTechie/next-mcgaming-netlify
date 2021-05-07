@@ -1,9 +1,11 @@
 import styles from '../styles/Guides.module.css'
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import AuthContext from '../stores/authContext'
 
 export default function Guides() {
   const { user, authReady } = useContext(AuthContext)
+  const [guides, setGuides] = useState(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     if (authReady) {
@@ -12,14 +14,37 @@ export default function Guides() {
           Authorization: 'Bearer ' + user.token.acess_token
         }
       })
-        .then(res => res.json())
-        .then(data => console.log(data))
+        .then(res => {
+          if (!res.ok) {
+            throw Error('You must be logged in to view this content')
+          }
+        })
+        .then(data => {
+          setGuides(data)
+          setError(null)
+        })
+        .catch(err => {
+          setError(err.message)
+          setGuides(null)
+        })
     }
   }, [user, authReady])
 
   return (
     <div className={styles.guides}>
-      <h2>All Guides</h2>
+      {!authReady && <div>Loading...</div>}
+      {error && (
+        <div className={styles.error}>
+          <p>{ error }</p>
+        </div>
+      )}
+      {guides && guides.map(guide => (
+        <div key={guide.title} className={styles.card}>
+          <h3>{guide.title}</h3>
+          <h4>{guide.author}</h4>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quasi dolor iusto numquam id consequuntur cumque, temporibus explicabo aspernatur sint molestias laborum amet odio mollitia reprehenderit assumenda alias tempora provident neque fuga nam! Nisi sapiente, dolorum voluptate quidem ullam aut!</p>
+        </div>
+      ))}
     </div> 
   )
 }
