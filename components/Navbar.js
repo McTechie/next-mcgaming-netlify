@@ -20,8 +20,7 @@ export default function Navbar() {
               {user && <li>{user.email}</li>}
               {user && <li onClick={logout} className="btn">Logout</li>}
             </ul>
-          )
-        }
+        )}
       </nav>
       <div className="banner">
         <Image src="/banner.png" width={966} height={276} />
