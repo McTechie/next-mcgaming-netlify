@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import AuthContext from '../stores/authContext'
+import { useContext } from 'react'
 
 export default function Navbar() {
   const { user, login, logout } = useContext(AuthContext)
@@ -14,8 +15,8 @@ export default function Navbar() {
         <ul>
           <li><Link href="/"><a>Home</a></Link></li>
           <li><Link href="/guides"><a>Guides</a></Link></li>
-          <li onclick={login} className="btn">Login/Signup</li>
-          <li onclick={logout} className="btn">Logout</li>
+          <li onClick={login} className="btn">Login/Signup</li>
+          <li onClick={logout} className="btn">Logout</li>
         </ul>
       </nav>
       <div className="banner">

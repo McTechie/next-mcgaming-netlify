@@ -1,5 +1,6 @@
 import { createContext } from 'react'
 import netlifyIdentity from 'netlify-identity-widget'
+import { useState, useEffect } from 'react'
 
 const AuthContext = createContext({
     user: null,
