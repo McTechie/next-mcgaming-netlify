@@ -37,7 +37,6 @@ export const AuthContextProvider = ({ children }) => {
         return () => {
             // Unregistering the listeners
             netlifyIdentity.off('login')
-            netlifyIdentity.off('logout')
         }
     }, [])
 

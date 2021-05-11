@@ -11,17 +11,18 @@ export default function Guides() {
     if (authReady) {
       fetch('/.netlify/functions/guides', user && {
         headers: {
-          Authorization: 'Bearer ' + user.token.acess_token
+          Authorization: 'Bearer ' + user.token.access_token
         }
       })
         .then(res => {
           if (!res.ok) {
             throw Error('You must be logged in to view this content')
           }
+          return res.json()
         })
         .then(data => {
-          setGuides(data)
           setError(null)
+          setGuides(data)
         })
         .catch(err => {
           setError(err.message)
@@ -41,7 +42,7 @@ export default function Guides() {
       {guides && guides.map(guide => (
         <div key={guide.title} className={styles.card}>
           <h3>{guide.title}</h3>
-          <h4>{guide.author}</h4>
+          <h4>written by {guide.author}</h4>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus quasi dolor iusto numquam id consequuntur cumque, temporibus explicabo aspernatur sint molestias laborum amet odio mollitia reprehenderit assumenda alias tempora provident neque fuga nam! Nisi sapiente, dolorum voluptate quidem ullam aut!</p>
         </div>
       ))}

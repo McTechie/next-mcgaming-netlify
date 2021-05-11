@@ -1,15 +1,42 @@
-This is the starter site project & all course files for the Next.js & Netlify Identity tutorial on the Net Ninja YouTube channel. Check out the [full tutorial here](https://www.youtube.com/playlist?list=PL4cUxeGkcC9i4g-0dAaMmFAyM6k3FmuZz).
+# McGaming Vibes
 
-### Getting Started
-To install the starter project:
-```
-npx create-next-app [your_site_name] -e https://github.com/iamshaunjp/next-netlify-identity/tree/lesson-1-starter
-```
+> A **McTechie** creation 👨‍🎨✨
 
-### Other Lessons
-To view the code for a specific lesson, select that lesson from the branch dropdown (top-left).
+### Tech Used
 
-### Image Credit (for use in project)
-Rupee icon - [https://game-icons.net/1x1/delapouite/rupee.html](https://game-icons.net/1x1/delapouite/rupee.html)
+- [x] **[Next.js](https://nextjs.org/)**
+- [x] **[Netlify](https://www.netlify.com/)**
 
-Mario background - [https://unsplash.com/photos/_R95VMWyn7A](https://unsplash.com/photos/_R95VMWyn7A)
+---
+
+### Concepts Covered
+
+- [x] Netlify Identity
+- [x] Netlify Functions
+- [x] Netlify Dev (Netlify CLI)
+- [x] Client-Side Content Guard
+- [x] Invite-Only Registrations
+
+---
+
+### Landing Page
+
+![Home Page](./assets/landing.png)
+
+---
+
+### Login
+
+![Login Modal](./assets/login.png)
+
+---
+
+### Visible Guides Page
+
+![Guides Page](./assets/guides.png)
+
+---
+
+### Restricted Guides Page
+
+![Restricted Guides Page](./assets/logout.png)
